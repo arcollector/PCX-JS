@@ -309,8 +309,8 @@ var decodeImage = function( arrayBuffer, header ) {
 			// get a key byte
 			var ch = arrayBuffer[arrayBufferIndex++];
 			DEBUG && lineOriginal.push( ch );
-			// if it's a run of bytes field
 			var count;
+			// if it's a run of bytes field
 			if( (ch & 0xc0) === 0xc0 ) {
 				// and off the high bits
 				count = ch & 0x3f;
@@ -322,7 +322,8 @@ var decodeImage = function( arrayBuffer, header ) {
 				count = 1;
 			}
 			for( var j = 0; j < count; j++ ) {
-				if( header.notEven && (byteCountLine+1) === header.bytesPerLineOriginal && (j+1) === count ) { // ignore last byte
+				// ignore last byte
+				if( header.notEven && (byteCountLine+1) === header.bytesPerLineOriginal && (j+1) === count ) {
 					byteCountLine++;
 					break;
 				}
@@ -1112,21 +1113,21 @@ var filenameURL = 'GODZILLA.PCX';
 var filenameURL = 'DRACULA.PCX';
 //test_monochrome( filenameURL );
 
-var filenameURL = 'CGA_RGBI.PCX';
-var filenameURL = 'CGA_FSD.PCX';
-var filenameURL = 'CGA_TST1.PCX';
 var filenameURL = 'lena8.pcx';
+var filenameURL = 'CGA_TST1.PCX';
+var filenameURL = 'CGA_FSD.PCX';
+var filenameURL = 'CGA_RGBI.PCX';
 //test_cga4Colors( filenameURL );
 
 var filenameURL = 'lena7.pcx';
 //test_4Colors( filenameURL );
 
-var filenameURL = 'animals.pcx';
 var filenameURL = 'lena6.pcx';
+var filenameURL = 'animals.pcx';
 //test_8Colors( filenameURL );
 
-var filenameURL = 'shuttle1.pcx';
 var filenameURL = 'lena4.pcx';
+var filenameURL = 'shuttle1.pcx';
 //test_16Colors4Planes( filenameURL );
 
 var filenameURL = 'lena3.pcx';
